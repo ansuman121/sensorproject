@@ -100,7 +100,7 @@ class ModelTrainer:
             model_param_grid  = self.utils.read_yaml_file(self.model_trainer_config.model_config_file_path)["model_selection"]["model"][best_model_name]["search_param_grid"]
 
 
-            grid_search = GridSearchCV(best_model_name,param_grid=model_param_grid,cv=5,verbose=1,n_jobs=-1)
+            grid_search = GridSearchCV(best_model_object,param_grid=model_param_grid,cv=5,verbose=1,n_jobs=-1)
 
             grid_search.fit(x_train,y_train)
 
@@ -121,7 +121,7 @@ class ModelTrainer:
 
             logging.info(f"splitting training and testng input and target features")
 
-            x_train,x_test,y_train,y_test = (
+            x_train,y_train,x_test,y_test = (
                 train_array[:,:-1],
                 train_array[:,-1],
                 test_array[:,:-1],

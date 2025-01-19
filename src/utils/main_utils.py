@@ -9,7 +9,7 @@ import boto3
 
 
 from src.constants import *
-from src.exception import CustomException
+from src.exception import customexception
 from src.logger import logging
 
 
@@ -27,7 +27,7 @@ class MainUtils:
 
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise customexception(e, sys) from e
 
 
     def read_schema_config_file(self) -> dict:
@@ -39,7 +39,7 @@ class MainUtils:
 
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise customexception(e, sys) from e
 
 
    
@@ -59,7 +59,7 @@ class MainUtils:
 
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise customexception(e, sys) from e
 
 
    
@@ -82,7 +82,7 @@ class MainUtils:
 
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise customexception(e, sys) from e
    
     @staticmethod    
     def load_object(file_path):
@@ -91,4 +91,4 @@ class MainUtils:
                 return pickle.load(file_obj)
         except Exception as e:
             logging.info('Exception Occured in load_object function utils')
-            raise CustomException(e,sys)
+            raise customexception(e,sys)

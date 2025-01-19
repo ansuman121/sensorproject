@@ -24,13 +24,14 @@ class dataIngestion :
         try:
             mongo_client = MongoClient(MONGO_DB_URL)
             
-            collection = mongo_client[collection_name][db_name]
+            collection = mongo_client[db_name][collection_name]
             df = pd.DataFrame(list(collection.find()))
 
             if "_id" in df.columns.to_list():
                 df = df.drop(columns=['_id'],axis=1)
 
             df.replace({"na":np.nan},inplace=True)
+            print(df)
             return df
         except Exception as e:
             raise customexception(e,sys) from e
@@ -67,7 +68,6 @@ class dataIngestion :
             return feature_store_file_path
         except Exception as e:
             raise customexception(e,sys) from e
-    
 
         
 

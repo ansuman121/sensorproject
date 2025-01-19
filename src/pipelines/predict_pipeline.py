@@ -21,7 +21,7 @@ class PredictPipelineConfig:
 
 class PredictionPipeline:
 
-    def __init__(self,request : request):
+    def __init__(self,request):
         self.request = request
         self.utils = MainUtils()
         self.prediction_pipeline_config = PredictPipelineConfig()

@@ -2,7 +2,7 @@ import logging
 import os
 from datetime import datetime
 
-LOG_FILE = f"{datetime.now().strftime("%m_%d_%y_%H_%M_%s")}.log" #name of the logfile in and it will be written in present time as name
+LOG_FILE = f"{datetime.now().strftime('%m_%d_%y_%H_%M_%s')}.log" #name of the logfile in and it will be written in present time as name
 
 log_path =os.path.join(os.getcwd(),"Logs",LOG_FILE) #the path that will be created for log file
 

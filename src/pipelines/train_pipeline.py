@@ -25,8 +25,8 @@ class TrainedPipeline :
     def start_data_transformation(self,feature_stored_file_path):
 
         try:
-            data_transformation = DataTransformatin()
-            train_arr,test_arr,preprocessor_path = data_transformation.initiate_data_transformation(feature_stored_file_path)
+            data_transformation = DataTransformatin(feature_stored_file_path)
+            train_arr,test_arr,preprocessor_path = data_transformation.initiate_data_transformation()
             return train_arr,test_arr,preprocessor_path
         except Exception as e:
             raise customexception(e,sys)
